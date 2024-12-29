@@ -78,34 +78,6 @@ if data is not None:
         )
         st.plotly_chart(fig_pelatihan, use_container_width=True)
 
-        # Tambahkan opsi untuk menampilkan atau menyembunyikan pie chart seluruh data
-        st.subheader("Komposisi Sertifikasi dan Pelatihan untuk Seluruh Organ Pengelola Risiko")
-        show_pie_chart = st.checkbox("Tampilkan Pie Chart")
-
-        if show_pie_chart:
-            # Pie chart untuk seluruh data sertifikasi
-            st.subheader("Komposisi Kualifikasi Sertifikasi")
-            kualifikasi_sertifikasi_counts = df["Keterangan Pemenuhan Kualifikasi Sertifikasi"].value_counts()
-            fig_sertifikasi = px.pie(
-                names=kualifikasi_sertifikasi_counts.index,
-                values=kualifikasi_sertifikasi_counts.values,
-                title="Kualifikasi Sertifikasi",
-                color_discrete_sequence=px.colors.qualitative.Set2
-            )
-            st.plotly_chart(fig_sertifikasi, use_container_width=True)
-
-            # Pie chart untuk seluruh data pelatihan
-            st.subheader("Komposisi Kualifikasi Pelatihan")
-            kualifikasi_pelatihan_counts = df["Keterangan Pemenuhan Kualifikasi Pelatihan"].value_counts()
-            fig_pelatihan = px.pie(
-                names=kualifikasi_pelatihan_counts.index,
-                values=kualifikasi_pelatihan_counts.values,
-                title="Kualifikasi Pelatihan",
-                color_discrete_sequence=px.colors.qualitative.Pastel
-            )
-            st.plotly_chart(fig_pelatihan, use_container_width=True)
-
-
         # Pie Chart Komposisi Kualifikasi Sertifikasi
         st.subheader("Komposisi Kualifikasi Sertifikasi")
         kualifikasi_sertifikasi_counts = filtered_data["Keterangan Pemenuhan Kualifikasi Sertifikasi"].value_counts()
@@ -144,6 +116,32 @@ if data is not None:
         )
         st.plotly_chart(fig_pelatihan, use_container_width=True)
 
+        # Tambahkan opsi untuk menampilkan atau menyembunyikan pie chart seluruh data
+        st.subheader("Komposisi Sertifikasi dan Pelatihan untuk Seluruh Organ Pengelola Risiko")
+        show_pie_chart = st.checkbox("Tampilkan Pie Chart")
+
+        if show_pie_chart:
+            # Pie chart untuk seluruh data sertifikasi
+            st.subheader("Komposisi Kualifikasi Sertifikasi")
+            kualifikasi_sertifikasi_counts = df["Keterangan Pemenuhan Kualifikasi Sertifikasi"].value_counts()
+            fig_sertifikasi = px.pie(
+                names=kualifikasi_sertifikasi_counts.index,
+                values=kualifikasi_sertifikasi_counts.values,
+                title="Kualifikasi Sertifikasi",
+                color_discrete_sequence=px.colors.qualitative.Set2
+            )
+            st.plotly_chart(fig_sertifikasi, use_container_width=True)
+
+            # Pie chart untuk seluruh data pelatihan
+            st.subheader("Komposisi Kualifikasi Pelatihan")
+            kualifikasi_pelatihan_counts = df["Keterangan Pemenuhan Kualifikasi Pelatihan"].value_counts()
+            fig_pelatihan = px.pie(
+                names=kualifikasi_pelatihan_counts.index,
+                values=kualifikasi_pelatihan_counts.values,
+                title="Kualifikasi Pelatihan",
+                color_discrete_sequence=px.colors.qualitative.Pastel
+            )
+            st.plotly_chart(fig_pelatihan, use_container_width=True)
 
         # Filter Individu (Setelah Chart)
         st.subheader("🔍Detail Sertifikasi dan Pelatihan Per Pejabat")
